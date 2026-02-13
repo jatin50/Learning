@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================== */
+/* Base theme variables  */
+/* ===================== */
+@layer base {
+  :root {
+    --background: 350 100% 98%;
+    --foreground: 340 45% 20%;
+
+    --card: 350 80% 97%;
+    --card-foreground: 340 45% 20%;
+
+    --popover: 350 80% 97%;
+    --popover-foreground: 340 45% 20%;
+
+    --primary: 340 75% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 55% 75%;
+    --secondary-foreground: 280 50% 25%;
+
+    --muted: 350 40% 92%;
+    --muted-foreground: 340 30% 40%;
+
+    --accent: 350 85% 88%;
+    --accent-foreground: 340 50% 22%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 340 40% 85%;
+    --input: 340 40% 85%;
+    --ring: 340 75% 55%;
+
+    --radius: 1rem;
+
+    /* Custom romantic colors */
+    --blush: 350 75% 88%;
+    --rose: 340 65% 65%;
+    --lavender: 280 55% 80%;
+    --cream: 40 100% 97%;
+    --soft-red: 0 65% 65%;
+    --gold: 40 85% 55%;
+
+    /* Gradients */
+    --gradient-romantic: linear-gradient(
+      135deg,
+      hsl(350 80% 94%) 0%,
+      hsl(280 55% 92%) 50%,
+      hsl(350 70% 92%) 100%
+    );
+
+    --gradient-love: linear-gradient(
+      180deg,
+      hsl(350 80% 96%) 0%,
+      hsl(340 60% 92%) 100%
+    );
+
+    --gradient-sunset: linear-gradient(
+      135deg,
+      hsl(340 75% 88%) 0%,
+      hsl(280 55% 82%) 100%
+    );
+
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(0 0% 100% / 0.95) 0%,
+      hsl(350 80% 97% / 0.9) 100%
+    );
+  }
+
+  .dark {
+    --background: 340 30% 10%;
+    --foreground: 350 80% 95%;
+    --card: 340 30% 15%;
+    --card-foreground: 350 80% 95%;
+    --primary: 340 80% 70%;
+    --primary-foreground: 340 30% 10%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Quicksand", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-romantic {
+    font-family: "Dancing Script", cursive;
+  }
+}
+
+/* ===================== */
+/* Components            */
+/* ===================== */
+@layer components {
+  .text-romantic {
+    font-family: "Dancing Script", cursive;
+  }
+
+  .bg-romantic-gradient {
+    background: var(--gradient-romantic);
+  }
+
+  .bg-love-gradient {
+    background: var(--gradient-love);
+  }
+
+  .bg-sunset-gradient {
+    background: var(--gradient-sunset);
+  }
+
+  .bg-card-glass {
+    background: var(--gradient-card);
+    backdrop-filter: blur(10px);
+  }
+
+  .text-gradient-love {
+    background: linear-gradient(
+      135deg,
+      hsl(340 80% 60%) 0%,
+      hsl(280 70% 65%) 50%,
+      hsl(340 70% 55%) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .heart-shadow {
+    filter: drop-shadow(0 4px 20px hsl(340 80% 70% / 0.4));
+  }
+
+  .romantic-shadow {
+    box-shadow:
+      0 8px 32px hsl(340 80% 70% / 0.2),
+      0 2px 8px hsl(280 60% 70% / 0.1);
+  }
+
+  .sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .pulse-heart {
+    animation: pulse-heart 1.5s ease-in-out infinite;
+  }
+
+  .envelope-shadow {
+    box-shadow: 0 20px 60px hsl(340 80% 50% / 0.3);
+  }
+}
+
+/* ===================== */
+/* Animations (GLOBAL)   */
+/* ===================== */
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-heart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes float-heart {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ===================== */
+/* Utilities             */
+/* ===================== */
+@layer utilities {
+  .animate-float-heart {
+    animation: float-heart linear infinite;
+  }
+
+  .animate-twinkle {
+    animation: twinkle 2s ease-in-out infinite;
+  }
+}
+
+/* ===================== */
+/* Scrollbar & selection */
+/* ===================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(350 80% 95%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(340 70% 80%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(340 70% 70%);
+}
+
+::selection {
+  background: hsl(340 80% 85%);
+  color: hsl(340 40% 25%);
+}
